@@ -1,11 +1,37 @@
 services:
+#  decision-engine-frontend:
+#    container_name: decision-engine-frontend
+#    build:
+#      context: ./frontend
+#      dockerfile: Dockerfile
+#    environment:
+#      API_HOST: http://decision-engine-backend:8081
+#    ports:
+#      - '4230:80'
+#    depends_on:
+#      - decision-engine-backend
+
+  decision-engine-backend:
+    hostname: decision-engine-backend
+    container_name: decision_engine_backend
+    build:
+      context: ./DecisionEngine
+      dockerfile: Dockerfile
+    environment:
+      APP_PORT: 8081
+      APP_DB: decisionengine
+      APP_DB_USER: root
+      APP_DB_PASSWORD: root
+    ports:
+      - '8081:8081'
+
   decisionengine-db:
     image: 'postgres:latest'
     container_name: decisionengine_db
     environment:
-      - 'POSTGRES_DB=decisionengine'
-      - 'POSTGRES_PASSWORD=root'
-      - 'POSTGRES_USER=root'
+      POSTGRES_DB: decisionengine
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: root
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - postgres-decisionengine-data:/var/lib/postgresql/data

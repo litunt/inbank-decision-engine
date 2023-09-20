@@ -1,5 +1,7 @@
 server:
-  port: 8080
+  port: ${APP_PORT:8081}
+  servlet:
+    context-path: /api
 
 spring:
   application:
@@ -14,9 +16,9 @@ spring:
           time_zone: Europe/Tallinn
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5332/decisionengine
-    username: root
-    password: root
+    url: jdbc:postgresql://localhost:5332/${APP_DB:decisionengine}
+    username: ${APP_DB_USER:root}
+    password: ${APP_DB_PASSWORD:root}
 
 management:
   endpoints:
