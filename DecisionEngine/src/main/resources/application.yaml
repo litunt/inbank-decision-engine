@@ -1,0 +1,35 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: 'Decision Engine'
+  profiles:
+    active: test
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Europe/Tallinn
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5332/decisionengine
+    username: root
+    password: root
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health"
+  endpoint:
+    health:
+      show-details: always
+      enabled: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /decision-engine-swagger-ui.html

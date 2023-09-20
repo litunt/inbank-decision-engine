@@ -1,0 +1,28 @@
+services:
+  decisionengine-db:
+    image: 'postgres:latest'
+    container_name: decisionengine_db
+    environment:
+      - 'POSTGRES_DB=decisionengine'
+      - 'POSTGRES_PASSWORD=root'
+      - 'POSTGRES_USER=root'
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - postgres-decisionengine-data:/var/lib/postgresql/data
+    ports:
+      - '5332:5432'
+    networks:
+      - decisionengine-net
+#  rabbitmq:
+#    image: 'rabbitmq:latest'
+#    environment:
+#      - 'RABBITMQ_DEFAULT_PASS=secret'
+#      - 'RABBITMQ_DEFAULT_USER=myuser'
+#    ports:
+#      - '5672'
+
+volumes:
+  postgres-decisionengine-data:
+
+networks:
+  decisionengine-net:
