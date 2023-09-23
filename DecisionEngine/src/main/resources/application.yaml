@@ -17,8 +17,11 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://${APP_DB_HOST:decisionengine-db}:${APP_DB_PORT:5432}/${APP_DB:decisionengine}
-    username: ${APP_DB_USER:root}
+    username: ${APP_DB_USER:engine_user}
     password: ${APP_DB_PASSWORD:root}
+  flyway:
+    locations: classpath:db/migration,classpath:db/data
+    encoding: UTF-8
 
 management:
   endpoints:

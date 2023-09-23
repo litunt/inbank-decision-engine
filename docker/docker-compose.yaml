@@ -20,12 +20,14 @@ services:
       APP_DB_HOST: decisionengine-db
       APP_DB_PORT: 5432
       APP_DB: decisionengine
-      APP_DB_USER: root
+      APP_DB_USER: engine_user
       APP_DB_PASSWORD: root
     ports:
       - '8081:8081'
     networks:
       - decisionengine-net
+    depends_on:
+      - decisionengine-db
 
   decisionengine-db:
     image: 'postgres:latest'
@@ -39,6 +41,18 @@ services:
       - postgres-decisionengine-data:/var/lib/postgresql/data
     ports:
       - '5332:5432'
+    networks:
+      - decisionengine-net
+
+  flyway:
+    image: flyway/flyway:latest
+    container_name: flyway
+    volumes:
+      - ./flyway/conf:/flyway/conf
+      - ./flyway/sql:/flyway/sql
+    depends_on:
+      - decisionengine-db
+    command: migrate
     networks:
       - decisionengine-net
 #  rabbitmq:
