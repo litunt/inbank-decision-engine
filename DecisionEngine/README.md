@@ -36,6 +36,10 @@ Given project uses relation database PostgreSQL. Database schema, including nece
 being generated automatically on application startup. Java library Hibernate helps with correct detection of
 object-enity relations.
 
+## Database migration
+As a database migration tool is used Flyway. Migrations are located under `src/resources/db/migration` package
+and file naming is structured as `V1__name`, where `V1` indicates the new version of the database that changes bring.
+
 ## Building
 Although there is also an option to create a `Dockerfile` to build an application image for further usage, `Gradle`
 build tool actually provides a ready functionality to build `Docker` image of the application using `Gradle task`
