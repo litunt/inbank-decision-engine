@@ -1,15 +1,15 @@
 services:
-#  decision-engine-frontend:
-#    container_name: decision-engine-frontend
-#    build:
-#      context: ./frontend
-#      dockerfile: Dockerfile
-#    environment:
-#      API_HOST: http://decision-engine-backend:8081
-#    ports:
-#      - '4230:80'
-#    depends_on:
-#      - decision-engine-backend
+  decision-engine-frontend:
+    container_name: decision-engine-frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      API_HOST: http://decision-engine-backend:8081
+    ports:
+      - '4230:80'
+    depends_on:
+      - decision-engine-backend
 
   decision-engine-backend:
     image: decision-engine-backend:latest
