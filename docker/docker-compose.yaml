@@ -12,18 +12,20 @@ services:
 #      - decision-engine-backend
 
   decision-engine-backend:
+    image: decision-engine-backend:latest
     hostname: decision-engine-backend
     container_name: decision_engine_backend
-    build:
-      context: ./DecisionEngine
-      dockerfile: Dockerfile
     environment:
       APP_PORT: 8081
+      APP_DB_HOST: decisionengine-db
+      APP_DB_PORT: 5432
       APP_DB: decisionengine
       APP_DB_USER: root
       APP_DB_PASSWORD: root
     ports:
       - '8081:8081'
+    networks:
+      - decisionengine-net
 
   decisionengine-db:
     image: 'postgres:latest'

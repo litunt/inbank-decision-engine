@@ -16,7 +16,7 @@ spring:
           time_zone: Europe/Tallinn
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5332/${APP_DB:decisionengine}
+    url: jdbc:postgresql://${APP_DB_HOST:decisionengine-db}:${APP_DB_PORT:5432}/${APP_DB:decisionengine}
     username: ${APP_DB_USER:root}
     password: ${APP_DB_PASSWORD:root}
 

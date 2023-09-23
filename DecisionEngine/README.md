@@ -30,16 +30,35 @@ with **environmental** variables
 
 Application is built as `Docker image`
 
-To build the application image, run the command:
+## Database
+
+Given project uses relation database PostgreSQL. Database schema, including necessary tables and constraints is
+being generated automatically on application startup. Java library Hibernate helps with correct detection of
+object-enity relations.
+
+## Building
+Although there is also an option to create a `Dockerfile` to build an application image for further usage, `Gradle`
+build tool actually provides a ready functionality to build `Docker` image of the application using `Gradle task`
+named `bootBuildImage`. This task also allows to upload the image to `DockerHub registry` using ` docker { publishRegistry {...} }`
+block by providing `DockerHub` credentials, but in this particular project this part was emitted.
+Application is built as `Docker` container along with corresponding _Gradle_ parameters as _properties_.
+
+### Docker container parameters
+
+* `imageNameProp` - name of application container
+
+### Building application Docker container with commands
+Image building
+
 ```sh
-docker build --no-cache -t decision-engine-backend .
+./gradlew bootBuildImage -x test -PimageName=decision-engine-backend
 ```
 
 ## Running application locally
 
 Run the command:
 ```sh
-./gradlew DecisionEngine:bootRun
+./gradlew bootRun
 ```
 
 Running application tests:
@@ -47,3 +66,14 @@ Running application tests:
 ```sh
 ./gradlew DecisionEngine:test
 ```
+
+## Using application locally
+To use application by URL on local machine after successfully setting up and running `Docker` containers,
+the application is accessible by `http://localhost:8081/api` URL.
+
+## Application healthcheck
+
+In order to make sure what is the status of the application, is it up and running etc., the Spring Boot framework's
+library Actuator is being used. It makes possible to navigate by `app-url/actuator/health` (e.g. regarding
+this specific project and running locally `http://localhost:8081/api/actuator/health`) and get the information.
+This provides the data about application's current status, is application up or down, what is the version of the application etc.
