@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -23,6 +24,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 @ToString
+@Table(name = "segment", schema = "core")
 public class Segment {
 
   @Id
@@ -31,7 +33,6 @@ public class Segment {
   private Long id;
 
   @Column(nullable = false)
-  @Enumerated(STRING)
   private SegmentType segmentType;
 
 }

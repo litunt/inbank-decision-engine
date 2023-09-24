@@ -1,41 +1,41 @@
 services:
-  decision-engine-frontend:
-    container_name: decision-engine-frontend
-    build:
-      context: ../frontend
-      dockerfile: Dockerfile
-    environment:
-      API_HOST: http://decision-engine-backend:8081
-    ports:
-      - '4230:80'
-    depends_on:
-      - decision-engine-backend
+#  decision-engine-frontend:
+#    container_name: decision-engine-frontend
+#    build:
+#      context: ../frontend
+#      dockerfile: Dockerfile
+#    environment:
+#      API_HOST: http://decision-engine-backend:8081
+#    ports:
+#      - '4230:80'
+#    depends_on:
+#      - decision-engine-backend
 
-  decision-engine-backend:
-    image: decision-engine-backend:latest
-    hostname: decision-engine-backend
-    container_name: decision_engine_backend
-    environment:
-      APP_PORT: 8081
-      APP_DB_HOST: decisionengine-db
-      APP_DB_PORT: 5432
-      APP_DB: decisionengine
-      APP_DB_USER: engine_user
-      APP_DB_PASSWORD: root
-    ports:
-      - '8081:8081'
-    networks:
-      - decisionengine-net
-    depends_on:
-      - decisionengine-db
+#  decision-engine-backend:
+#    image: decision-engine-backend:latest
+#    hostname: decision-engine-backend
+#    container_name: decision_engine_backend
+#    environment:
+#      APP_PORT: 8081
+#      APP_DB_HOST: decisionengine-db
+#      APP_DB_PORT: 5432
+#      APP_DB: decisionengine
+#      APP_DB_USER: engine_user
+#      APP_DB_PASSWORD: root
+#    ports:
+#      - '8081:8081'
+#    networks:
+#      - decisionengine-net
+#    depends_on:
+#      - decisionengine-db
 
   decisionengine-db:
-    image: 'postgres:latest'
+    image: 'postgres:14'
     container_name: decisionengine_db
     environment:
       POSTGRES_DB: decisionengine
-      POSTGRES_PASSWORD: root
       POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
       - postgres-decisionengine-data:/var/lib/postgresql/data
@@ -48,10 +48,13 @@ services:
     image: flyway/flyway:latest
     container_name: flyway
     volumes:
-      - ./flyway/conf:/flyway/conf
-      - ./flyway/sql:/flyway/sql
+      - ../flyway/migration:/flyway/sql
     depends_on:
       - decisionengine-db
+    environment:
+      FLYWAY_URL: jdbc:postgresql://decisionengine-db:5432/decisionengine
+      FLYWAY_USER: root
+      FLYWAY_PASSWORD: root
     command: migrate
     networks:
       - decisionengine-net

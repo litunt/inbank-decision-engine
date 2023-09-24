@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -24,6 +25,7 @@ import org.hibernate.annotations.OnDelete;
 @AllArgsConstructor
 @Builder
 @ToString
+@Table(name = "user_loan_profile", schema = "core")
 public class UserLoanProfile {
 
   @Id
