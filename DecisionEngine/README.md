@@ -11,10 +11,15 @@
 
 * config - configuration layer, provides configurations for application
 * controller - controller layer, accepts REST requests
+* decisionengine - layer of the whole decision engine logic
 * dto - model layer, contains the structure of models used throughout the application
+* enums - holds enumerate value classes
+* exceptions -layer that contains exception handling objects
+* model - contains entity classes
+* repository - layer with repository interfaces to get data from the database
 * service - service layer, responsible for business logic
-* exceptions - layer that contains exception handling objects
-* util - helper layer, includes commonly used functionality
+* utils - helper layer, includes commonly used functionality
+* validation - layer that contains validation handling
 
 ## Application configurations
 

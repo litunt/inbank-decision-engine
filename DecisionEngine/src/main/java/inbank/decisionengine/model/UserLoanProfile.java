@@ -38,4 +38,7 @@ public class UserLoanProfile {
 
   @Column(nullable = false, columnDefinition = "text")
   private String idCode;
+
+  @Column(nullable = false)
+  private Boolean hasDebt;
 }
