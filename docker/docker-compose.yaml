@@ -2,7 +2,7 @@ services:
   decision-engine-frontend:
     container_name: decision-engine-frontend
     build:
-      context: ./frontend
+      context: ../frontend
       dockerfile: Dockerfile
     environment:
       API_HOST: http://decision-engine-backend:8081
