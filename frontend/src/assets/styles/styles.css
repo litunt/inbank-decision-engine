@@ -1,0 +1,15 @@
+@import "theme.css";
+@import "primeicons/primeicons.css";
+
+body, html {
+  font-size: 150%;
+  font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+}
+
+body {
+  margin: 20px 50px;
+}
+
+.align-right {
+  float: right;
+}
