@@ -1,1 +1,20 @@
-<p>main-page works!</p>
+<app-data-card [title]="'Loan application'"
+               [actionLabel]="'Submit'"
+               (cardActionEmitter)="submit($event)"
+               [body]="cardContent">
+</app-data-card>
+
+<ng-template #cardContent>
+  <app-range-slider [header]="'slider.label.money.amount'"
+                    [suffix]="'label.currency.euro'"
+                    [step]="100"
+                    [(sliderCtrl)]="moneyCtrl"
+                    [min]="config.minMoneyAmount"
+                    [max]="config.maxMoneyAmount"/>
+  <br>
+  <app-range-slider [header]="'slider.label.period'"
+                    [suffix]="'label.months'"
+                    [(sliderCtrl)]="monthCtrl"
+                    [min]="config.minMonthsNumber"
+                    [max]="config.maxMonthsNumber"/>
+</ng-template>

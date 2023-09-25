@@ -16,6 +16,14 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/h
 import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {LoaderService} from "./_services/loader.service";
+import {CardModule} from "primeng/card";
+import { DataCardComponent } from './_components/data-card/data-card.component';
+import { RangeSliderComponent } from './_components/range-slider/range-slider.component';
+import {SliderModule} from "primeng/slider";
+import { InputNumberModule } from 'primeng/inputnumber';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ButtonModule} from "primeng/button";
+import {TooltipModule} from "primeng/tooltip";
 
 @NgModule({
   declarations: [
@@ -23,6 +31,8 @@ import {LoaderService} from "./_services/loader.service";
     LoaderComponent,
     FooterComponent,
     MainPageComponent,
+    DataCardComponent,
+    RangeSliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +50,14 @@ import {LoaderService} from "./_services/loader.service";
     }),
     DividerModule,
     SharedModule,
-    ProgressBarModule
+    ProgressBarModule,
+    CardModule,
+    SliderModule,
+    InputNumberModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ButtonModule,
+    TooltipModule
   ],
   providers: [
     LoaderService,

@@ -2,7 +2,6 @@ p-footer {
   position: absolute;
   bottom: 0;
   font-size: 40%;
-  color: #6c757d;
   width: calc(100% - 100px);
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
