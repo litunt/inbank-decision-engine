@@ -6,6 +6,8 @@
   --surface-e: #ffffff;
   --surface-f: #ffffff;
   --text-color: #2d0158;
+  --primary-background-color: #2d0158;
+  --extra-color: #e19b27;
   --text-color-secondary: #9e93f2;
   --primary-color: #5949ac;
   --primary-color-text: #ffffff;
@@ -1858,7 +1860,7 @@ p-selectbutton.ng-dirty.ng-invalid > .p-selectbutton > .p-button {
 }
 
 .p-slider {
-  background: #aba6dd;
+  background: white;
   border: 0 none;
   border-radius: 6px
 }
@@ -1885,7 +1887,7 @@ p-selectbutton.ng-dirty.ng-invalid > .p-selectbutton > .p-button {
   height: 1.143rem;
   width: 1.143rem;
   background: #fff;
-  border: 2px solid #5949ac;
+  border: 2px solid var(--extra-color);;
   border-radius: 50%;
   transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s
 }
@@ -1893,16 +1895,14 @@ p-selectbutton.ng-dirty.ng-invalid > .p-selectbutton > .p-button {
 .p-slider .p-slider-handle:focus {
   outline: 0 none;
   outline-offset: 0;
-  box-shadow: 0 0 0 1px #9e93f2
 }
 
 .p-slider .p-slider-range {
-  background: #5949ac
+  background: var(--extra-color);
 }
 
 .p-slider:not(.p-disabled) .p-slider-handle:hover {
-  background: #5949ac;
-  border-color: #5949ac
+  border-color: var(--extra-color);
 }
 
 .p-slider.p-slider-animate.p-slider-horizontal .p-slider-handle {
@@ -2116,7 +2116,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
   padding: .75rem 1.25rem;
   font-size: 1rem;
   transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s;
-  border-radius: 6px
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .p-button:enabled:hover {
@@ -4767,10 +4768,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 
 .p-card {
-  background: #fff;
-  color: #2d0158;
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
-  border-radius: 6px
+  background: var(--primary-background-color);
+  margin: 0 100px;
 }
 
 .p-card .p-card-body {
@@ -4780,7 +4779,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 .p-card .p-card-title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: .5rem
+  margin-bottom: .5rem;
+  text-align: center;
 }
 
 .p-card .p-card-subtitle {
@@ -4794,7 +4794,8 @@ p-treeselect.p-treeselect-clearable .p-treeselect-clear-icon {
 }
 
 .p-card .p-card-footer {
-  padding: 1.25rem 0 0 0
+  padding: 1.25rem 0 0 0;
+  text-align: center;
 }
 
 .p-divider .p-divider-content {

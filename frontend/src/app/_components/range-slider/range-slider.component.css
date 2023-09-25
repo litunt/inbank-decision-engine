@@ -1,0 +1,11 @@
+.w-full {
+  margin-top: 10px;
+}
+
+.slider-bottom-label {
+  font-size: smaller;
+}
+
+.value-text {
+  color: var(--extra-color);
+}

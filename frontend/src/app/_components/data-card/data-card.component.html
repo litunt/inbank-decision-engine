@@ -1,0 +1,12 @@
+<div class="card flex justify-content-center">
+  <p-card [header]="title">
+    <ng-container *ngTemplateOutlet="body"></ng-container>
+    <ng-template pTemplate="footer">
+      <p-button [label]="actionLabel"
+                [icon]="'pi pi-check'"
+                (click)="send()"
+                [styleClass]="'p-button-sm p-button-success'">
+      </p-button>
+    </ng-template>
+  </p-card>
+</div>
