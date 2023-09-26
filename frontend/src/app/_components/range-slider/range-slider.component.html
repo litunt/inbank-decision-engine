@@ -1,0 +1,12 @@
+<p id="slider-label">
+  {{header | translate}}: <strong class="value-text">{{ getHeaderValue }}</strong>
+</p>
+<p-slider aria-labelledby="slider-label"
+          [min]="min"
+          [max]="max"
+          [step]="step"
+          [formControl]="ctrl"></p-slider>
+<div class="w-full">
+  <span class="slider-bottom-label">{{min}} {{suffix | translate}}</span>
+  <span class="slider-bottom-label align-right">{{max}} {{suffix | translate}}</span>
+</div>

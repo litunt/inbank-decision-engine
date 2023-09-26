@@ -8,8 +8,30 @@ body, html {
 
 body {
   margin: 20px 50px;
+  background-color: var(--primary-background-color);
+  color: white !important;
 }
 
 .align-right {
   float: right;
 }
+
+.p-component {
+  color: var(--surface-a);
+}
+
+a {
+  color: var(--surface-a);
+}
+
+a:hover {
+  color: var(--text-color-secondary);
+}
+
+
+.p-card {
+  box-shadow: none;
+  border: none
+}
+
+
