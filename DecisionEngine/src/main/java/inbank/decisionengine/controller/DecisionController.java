@@ -2,12 +2,13 @@ package inbank.decisionengine.controller;
 
 import static org.springframework.http.HttpStatus.OK;
 
-import inbank.decisionengine.model.UserLoanProfile;
-import inbank.decisionengine.repository.UserLoanProfileRepository;
-import java.util.List;
+import inbank.decisionengine.dto.LoanDecisionDto;
+import inbank.decisionengine.dto.LoanUserRequestDto;
+import inbank.decisionengine.service.LoanEvaluationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/loan-decision")
 public class DecisionController {
 
-  private final UserLoanProfileRepository userLoanProfileRepository;
+  private final LoanEvaluationService loanEvaluationService;
 
-  @GetMapping
+  @PostMapping
   @ResponseStatus(OK)
-  public ResponseEntity<List<UserLoanProfile>> getProfiles() {
-    return ResponseEntity.ok(userLoanProfileRepository.findAll());
+  public ResponseEntity<LoanDecisionDto> getProfiles(@RequestBody LoanUserRequestDto loanRequest) {
+    return ResponseEntity.ok(loanEvaluationService.getLoanDecision(loanRequest));
   }
 
 }

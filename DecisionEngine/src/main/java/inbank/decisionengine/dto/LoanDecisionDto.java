@@ -1,23 +1,22 @@
 package inbank.decisionengine.dto;
 
-import inbank.decisionengine.enums.LoanDecision;
+import inbank.decisionengine.enums.LoanDecisionType;
 import java.math.BigDecimal;
 
 public record LoanDecisionDto(
-    String userIdCode,
-    LoanDecision decision,
-    Integer periodLength,
-    BigDecimal allowedMoneyAmount
+    LoanDecisionType decision,
+    Integer approvedPeriodLength,
+    BigDecimal approvedLoanAmount
 ) {
 
   public LoanDecisionDto withAllowedMoneyAmount(BigDecimal money) {
-    return new LoanDecisionDto(userIdCode(), decision(), periodLength(), money);
+    return new LoanDecisionDto(decision(), approvedPeriodLength(), money);
   }
   public LoanDecisionDto withPeriodLength(Integer newPeriodLength) {
-    return new LoanDecisionDto(userIdCode(), decision(), newPeriodLength, allowedMoneyAmount());
+    return new LoanDecisionDto(decision(), newPeriodLength, approvedLoanAmount());
   }
-  public LoanDecisionDto withDecision(LoanDecision newDecision) {
-    return new LoanDecisionDto(userIdCode(), newDecision, periodLength, allowedMoneyAmount());
+  public LoanDecisionDto withDecision(LoanDecisionType newDecision) {
+    return new LoanDecisionDto(newDecision, approvedPeriodLength, approvedLoanAmount());
   }
 
 }
