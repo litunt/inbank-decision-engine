@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormControl} from "@angular/forms";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-range-slider',
@@ -22,6 +23,8 @@ export class RangeSliderComponent {
   }
 
   get getHeaderValue(): string {
-    return `${this.ctrl && this.ctrl.value || this.min}`;
+    return `${this.ctrl && this.ctrl.value || this.min} ${this.translate.instant(this.suffix)}`;
+  }
+  constructor(private translate: TranslateService) {
   }
 }
