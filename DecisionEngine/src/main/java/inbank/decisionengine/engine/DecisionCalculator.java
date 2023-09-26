@@ -1,4 +1,4 @@
-package inbank.decisionengine.decisionengine;
+package inbank.decisionengine.engine;
 
 import static java.math.BigDecimal.valueOf;
 import static java.math.RoundingMode.HALF_UP;
