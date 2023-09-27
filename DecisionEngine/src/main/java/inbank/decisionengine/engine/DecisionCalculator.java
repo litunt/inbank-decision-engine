@@ -29,7 +29,7 @@ public class DecisionCalculator {
         .divide(valueOf(creditModifier)
             .divide(loanAmount, 2, HALF_UP),
             2, HALF_UP)
-        .intValueExact();
+        .intValue();
   }
 
 }

@@ -28,8 +28,7 @@ public class LoanEvaluationService {
   private final LoanHandler minLoanAmountLoanHandler;
   private final LoanHandler maxPeriodLoanHandler;
   private final LoanHandler minPeriodLoanHandler;
-  private final LoanHandler completeRejectionLoanHandler; // TODO rename
-
+  private final LoanHandler completeRejectionLoanHandler;
 
   @PostConstruct
   public void initHandlers() {

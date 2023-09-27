@@ -22,7 +22,7 @@ public class DecisionController {
 
   @PostMapping
   @ResponseStatus(OK)
-  public ResponseEntity<LoanDecisionDto> getProfiles(@RequestBody LoanUserRequestDto loanRequest) {
+  public ResponseEntity<LoanDecisionDto> loanDecision(@RequestBody LoanUserRequestDto loanRequest) {
     return ResponseEntity.ok(loanEvaluationService.getLoanDecision(loanRequest));
   }
 
