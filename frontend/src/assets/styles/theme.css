@@ -897,7 +897,6 @@ p-chips.p-chips-clearable .p-chips-clear-icon {
 }
 
 .p-dropdown {
-  background: #fff;
   border: 1px solid #9e92f3;
   transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s;
   border-radius: 6px
@@ -920,7 +919,8 @@ p-chips.p-chips-clearable .p-chips-clear-icon {
 
 .p-dropdown .p-dropdown-label {
   background: transparent;
-  border: 0 none
+  border: 0 none;
+  color: #fff;
 }
 
 .p-dropdown .p-dropdown-label.p-placeholder {
@@ -946,7 +946,7 @@ p-chips.p-chips-clearable .p-chips-clear-icon {
 }
 
 .p-dropdown-panel {
-  background: #fff;
+  background: #9e93f2;
   color: #2d0158;
   border: 0 none;
   border-radius: 6px;

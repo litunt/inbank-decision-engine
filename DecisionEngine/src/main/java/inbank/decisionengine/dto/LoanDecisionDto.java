@@ -9,14 +9,4 @@ public record LoanDecisionDto(
     BigDecimal approvedLoanAmount
 ) {
 
-  public LoanDecisionDto withAllowedMoneyAmount(BigDecimal money) {
-    return new LoanDecisionDto(decision(), approvedPeriodLength(), money);
-  }
-  public LoanDecisionDto withPeriodLength(Integer newPeriodLength) {
-    return new LoanDecisionDto(decision(), newPeriodLength, approvedLoanAmount());
-  }
-  public LoanDecisionDto withDecision(LoanDecisionType newDecision) {
-    return new LoanDecisionDto(newDecision, approvedPeriodLength, approvedLoanAmount());
-  }
-
 }

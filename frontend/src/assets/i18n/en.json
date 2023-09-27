@@ -2,5 +2,11 @@
   "slider.label.money.amount": "Loan amount",
   "slider.label.period": "Period",
   "label.currency.euro": "EUR",
-  "label.months": "months"
+  "label.months": "months",
+  "id.code.dropdown.select": "Select ID code",
+  "id.code.dropdown.header": "ID code",
+  "modal.ok": "OK",
+  "modal.header": "LOAN DECISION",
+  "approved.loan.amount.title": "Approved loan amount",
+  "approved.period.length.title": "Approved period length"
 }
