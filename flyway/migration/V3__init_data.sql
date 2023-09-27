@@ -25,6 +25,11 @@ insert into core.user_loan_profile (id_code, loan_segmentation_id, has_debt)
 values ('49002010998', (select max(id) from core.loan_segmentation), false);
 
 
+insert into core.segment (segment_type) values ('4');
+
+insert into core.loan_segmentation (segment_id, credit_modifier)
+values ((select max(id) from core.segment), 600);
+
 insert into core.user_loan_profile (id_code, loan_segmentation_id, has_debt)
-values ('49002010965', null, true);
+values ('49002010965', (select max(id) from core.loan_segmentation), true);
 
