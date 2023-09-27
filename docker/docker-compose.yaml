@@ -10,6 +10,8 @@ services:
       - '4230:80'
     depends_on:
       - decision-engine-backend
+    networks:
+      - decisionengine-net
 
   decision-engine-backend:
     image: decision-engine-backend:latest
@@ -28,6 +30,7 @@ services:
       - decisionengine-net
     depends_on:
       - decisionengine-db
+      - flyway
 
   decisionengine-db:
     image: 'postgres:14'

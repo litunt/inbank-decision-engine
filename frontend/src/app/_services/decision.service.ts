@@ -12,6 +12,6 @@ export class DecisionService {
   constructor(private http: HttpClient) {  }
 
   public sendLoanRequest(loanRequest: LoanRequest): Observable<LoanDecision> {
-    return this.http.post<LoanDecision>('/loan-decision', loanRequest);
+    return this.http.post<LoanDecision>('/api/loan-decision', loanRequest);
   }
 }

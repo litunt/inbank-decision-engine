@@ -62,3 +62,6 @@ or
 ```sh
 ng serve
 ```
+## Access the UI
+Frontend application UI is accessible locally by URL `localhost:4200` or in case frontend
+is running in `Docker` container, then the port is changed and UI is accessible by URL `localhost:4230`

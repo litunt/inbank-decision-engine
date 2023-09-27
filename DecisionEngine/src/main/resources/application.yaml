@@ -22,7 +22,7 @@ spring:
   flyway:
     locations: ../../../flyway/migration
     encoding: UTF-8
-    enabled: true
+    enabled: false # change that to true in case you want to run flyway locally, not in container
 
 management:
   endpoints:

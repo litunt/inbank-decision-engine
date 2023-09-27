@@ -6,7 +6,7 @@ COPY . .
 RUN npm run build
 
 FROM nginx:stable-alpine AS nginx
-COPY --from=frontend /app/dist/decision-engine-frontend /usr/share/nginx/html
+COPY --from=frontend /app/dist/frontend /usr/share/nginx/html
 
 RUN rm /etc/nginx/conf.d/*
 COPY --from=frontend /app/nginx.conf.template /etc/nginx/conf.d/default.template
