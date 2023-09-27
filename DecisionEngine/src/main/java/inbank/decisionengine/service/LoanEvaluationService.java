@@ -41,9 +41,9 @@ public class LoanEvaluationService {
   }
 
   public LoanDecisionDto getLoanDecision(LoanUserRequestDto userLoanRequest) {
+    validateRequest(userLoanRequest);
     var userLoanProfile = userLoanProfileRepository.findByIdCode(userLoanRequest.userIdCode());
     if (userLoanProfile.isPresent()) {
-      validateRequest(userLoanRequest);
       final var userProfile = userLoanProfile.get();
       var loanRequest = new LoanRequest(
           new LoanCondition(userLoanRequest.periodLength(), userLoanRequest.requiredMoneyAmount()),

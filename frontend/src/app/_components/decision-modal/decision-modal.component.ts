@@ -5,7 +5,6 @@ import {DecisionTypeEnum} from "../../_models/enum/decisionType.enum";
 @Component({
   selector: 'app-decision-modal',
   templateUrl: './decision-modal.component.html',
-  styleUrls: ['./decision-modal.component.css']
 })
 export class DecisionModalComponent {
 
