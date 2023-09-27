@@ -3,8 +3,13 @@
                (cardActionEmitter)="submit($event)"
                [body]="cardContent">
 </app-data-card>
-
+<app-decision-modal [(displayModal)]="displayDecisionModal"
+                    [decision]="decision"/>
 <ng-template #cardContent>
+  <app-id-code-selector [(idCodeCtrl)]="idCodeCtrl"
+                        [placeholder]="'id.code.dropdown.select'"
+                        [header]="'id.code.dropdown.header'"/>
+  <br>
   <app-range-slider [header]="'slider.label.money.amount'"
                     [suffix]="'label.currency.euro'"
                     [step]="100"

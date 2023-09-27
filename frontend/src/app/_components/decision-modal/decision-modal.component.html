@@ -1,0 +1,21 @@
+<p-dialog class="align-center"
+          [header]="'modal.header' | translate"
+          [(visible)]="display"
+          [style]="{width: '35vw'}">
+  <div *ngIf="decision">
+    <strong class="value-text">{{getDecisionTitle}}</strong>
+    <p>{{'approved.loan.amount.title' | translate}}:
+      <strong class="value-text">
+        {{decision.approvedLoanAmount}} {{'label.currency.euro' | translate}}
+      </strong>
+    </p>
+    <p>{{'approved.period.length.title' | translate}}:
+      <strong class="value-text">
+        {{decision.approvedPeriodLength}} {{'label.months' | translate}}
+      </strong>
+    </p>
+  </div>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="closeModal()" [label]="'modal.ok' | translate" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

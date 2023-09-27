@@ -39,3 +39,6 @@ springdoc:
     path: /api-docs
   swagger-ui:
     path: /decision-engine-swagger-ui.html
+    doc-expansion: none
+    syntax-highlight:
+      theme: monokai

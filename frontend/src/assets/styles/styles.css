@@ -1,5 +1,6 @@
 @import "theme.css";
 @import "primeicons/primeicons.css";
+@import "primeng/resources/primeng.min.css";
 
 body, html {
   font-size: 150%;
@@ -16,6 +17,10 @@ body {
   float: right;
 }
 
+.align-center {
+  margin-left: 10%;
+}
+
 .p-component {
   color: var(--surface-a);
 }
@@ -28,6 +33,9 @@ a:hover {
   color: var(--text-color-secondary);
 }
 
+.value-text {
+  color: var(--extra-color);
+}
 
 .p-card {
   box-shadow: none;

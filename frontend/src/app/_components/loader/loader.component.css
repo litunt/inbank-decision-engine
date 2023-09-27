@@ -1,0 +1,29 @@
+.loader-container {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: var(--surface-d);
+  opacity: 0.8;
+  z-index: 2;
+  display: block;
+}
+
+.loader {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+@keyframes loading-delay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
